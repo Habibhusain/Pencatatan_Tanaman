@@ -1,0 +1,281 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+    width: 80%;
+    max-width: 900px;
+    margin: auto;
+    margin-top: 50px;
+}
+.judul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.judul h1 {
+    margin: 0;
+    font-size: 35px;
+    color: #333;
+}
+
+.judul a {
+    padding: 10px 20px;
+    background-color: #289fa7;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.judul a:hover {
+    background-color: #163bb3;
+}
+.box table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.box thead th {
+    background-color: #0daeb9;
+    color: white;
+    padding: 10px;
+}
+
+.box tbody td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+.box tbody td a:first-child{
+    padding: 8px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.box tbody td a{
+    padding: 8px 20px;
+    background-color: #cc211c;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.box tbody td img {
+    border-radius: 8px;
+}
+
+.box tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.box tr:hover {
+    background-color: #f1f1f1;
+}
+.box tbody td img{
+    width: 100px;
+    height: 100px;
+}
+.container-tambah {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+.container-tambah form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-tambah .inputan {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-tambah .inputan h1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.container-tambah .inputan label {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.container-tambah .inputan input[type="text"],
+.container-tambah .inputan textarea,
+.container-tambah .inputan input[type="date"],
+.container-tambah .inputan input[type="file"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.container-tambah .inputan textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.container-tambah .inputan input[type="submit"] {
+    background-color: #1cb8c4;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.container-tambah .inputan input[type="submit"]:hover {
+    background-color: #154b92;
+}
+
+.container-tambah .inputan a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.container-tambah .inputan a:hover {
+    text-decoration: underline;
+}
+
+.container-tambah .inputan a{
+    text-align: center;
+}
+
+.container-edit {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+.container-edit form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-edit .inputan {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-edit .inputan h1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.container-edit .inputan label {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.container-edit .inputan input[type="text"],
+.container-edit .inputan textarea,
+.container-edit .inputan input[type="date"],
+.container-edit .inputan input[type="file"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.container-edit .inputan textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.container-edit .inputan input[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.container-edit .inputan input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.container-edit .inputan a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007bff;
+}
+.container-edit .inputan img{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.container-edit .inputan a:hover {
+    text-decoration: underline;
+}
+
+.container-edit .inputan a{
+    text-align: center;
+}
+
+
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody td {
+        display: block;
+        text-align: right;
+        padding: 10px 5px;
+    }
+
+    tbody td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+    }
+
+    tbody td img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    tr {
+        margin-bottom: 15px;
+        display: block;
+        border-bottom: 2px solid #ddd;
+    }
+}
