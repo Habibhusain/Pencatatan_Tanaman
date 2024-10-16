@@ -1,5 +1,6 @@
 <?php
 require 'db.php';
+require "functions.php";
 
 ?>
 
@@ -41,22 +42,21 @@ require 'db.php';
         </thead>
         <tbody>
             <?php
-             $tampil_data_tanaman = "SELECT * FROM tanaman ORDER BY tanggal DESC";
-             $tamil_tanaman = $db -> query($tampil_data_tanaman);
+             $tampilan_data = tampil_data();
              $no=1;
-             while($row = $tamil_tanaman -> fetchArray()):
+             foreach($tampilan_data as $row):
             ?>
             <tr>
                 <td><?php echo $no;?></td>
                 <td><?php echo date('d-m-Y', strtotime($row['tanggal'])); ?></td>
                 <td><?php echo $row['tanaman'] ?></td>
                 <td><?php echo $row['keterangan'] ?></td>
-                <td><img src="css/image/<?php echo $row['foto']?>" alt="foto_tanaman"></td>
+                <td><img src="image/<?php echo $row['foto']?>" alt="foto_tanaman"></td>
                 <td><a href="edit_tanaman.php?id=<?php echo $row['id']?>">Edit</a> || <a href="hapus_tanaman.php?id=<?php echo $row['id']?>" onclick ="return confirm('Yakin Mau Hapus Tanaman Ini??? :( ')">hapus</a></td>
             </tr>
                 <?php
                 $no++;
-             endwhile;
+                endforeach;
                 ?>
 
         </tbody>

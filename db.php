@@ -1,6 +1,6 @@
 <?php
 
-$db = new SQLite3('tanaman.sqlite');
+$db = new SQLite3('db_tanaman.sqlite');
 
 if(!$db){
     echo $db -> lastErrorMsg();

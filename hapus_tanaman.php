@@ -1,20 +1,20 @@
 <?php
 
-require "db.php";
+require "functions.php";
+
 $get_id = $_GET['id'];
 
-$delete_data_tanaman= "DELETE FROM tanaman id='$get_id'";
-$delete_tanaman = $db -> query($delete_data_tanaman);
+$delete = delete_tanaman($get_id);
 
-if($delete_tanaman)
+if($delete)
 {
     echo "<script>
     alert('Data Berhasil di Hapus');
-    window.location='tanaman.php';
+    window.location='index.php';
     </script>";
 }else{
     echo "<script>
     alert('Data Gagal di Hapus');
-    window.location='tanaman.php';
+    window.location='index.php';
     </script>";
 }
