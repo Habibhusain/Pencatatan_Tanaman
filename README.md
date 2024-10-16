@@ -16,13 +16,13 @@ Ini adalah aplikasi web sederhana untuk Pencatan tanaman, di mana pengguna dapat
 - **Database**: SQLite
 
 ### Daftar Tanaman
-![Daftar Tanaman](./screenshot/tampil.png.png)
+![Daftar Tanaman](./screenshot/tampil.png)
 Tampilan ini menunjukkan daftar semua tanaman dan status perawatannya, termasuk opsi untuk mengedit atau menghapus setiap entri.
 
 ### Tambah Tanaman
-![Tambah Tanaman](./screenshot/tambah.png.png)
+![Tambah Tanaman](./screenshot/tambah.png)
 Ini adalah form untuk menambah tanaman baru dengan memasukkan nama, deskripsi, mengunggah gambar, dan memilih tanggal.
 
 ### Edit Tanaman
-![Edit Tanaman](./screenshot/edit.png.png)
+![Edit Tanaman](./screenshot/edit.png)
 Form edit ini memungkinkan pengguna memperbarui detail tanaman yang sudah ada, termasuk mengubah deskripsi, gambar, atau tanggal.
