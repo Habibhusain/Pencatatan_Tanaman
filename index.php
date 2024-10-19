@@ -60,8 +60,12 @@ require "functions.php";
                 ?>
 
         </tbody>
+
     </table>
+    <p>&copy; 2024 by Habib Husain Nurrohim. All rights reserved.</p>
+
     </div>
     </div>
+    
 </body>
 </html>
