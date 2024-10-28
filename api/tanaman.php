@@ -21,9 +21,11 @@
                     $respon = array(
                         'status' => false,
                         'message' => 'Data tidak di temukan',
-                        'data' => array()
+                        'data' => $get_edit_tanaman
                     );
                     echo respon($respon, 500);
+                die;
+                    
                 }
                 else
                 {
