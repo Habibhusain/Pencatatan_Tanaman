@@ -10,7 +10,6 @@
     {
         case 'GET':
             
-            
             if (isset($_GET ['id']) && !empty($_GET ['id']))
             {
                 $get_tanaman_id = $_GET ['id'];

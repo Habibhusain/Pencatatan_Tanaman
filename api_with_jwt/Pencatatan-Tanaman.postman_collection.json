@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "0e066239-8005-4ec6-91ba-bcd568aa916b",
+		"name": "Pencatatan-Tanaman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39273743"
+	},
+	"item": [
+		{
+			"name": "JWT",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "admin dua",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "admindua@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin12345",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "T4n4manku",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api_with_jwt/register.php",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api_with_jwt",
+								"register.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api_with_jwt/login.php",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api_with_jwt",
+								"login.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tanaman edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiZW1haWwiOiJMb2dpbiBzdWNjZXNzZnVsbHkiLCJleHAiOjE3MzI4NjE1MjB9.8uK-PneJm810gjm693XJrbwTdOP7odJNzp4fsldU674",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api_with_jwt/tanaman.php?id=4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api_with_jwt",
+								"tanaman.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Tanaman",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiZW1haWwiOiJMb2dpbiBzdWNjZXNzZnVsbHkiLCJleHAiOjE3MzI4NjE1MjB9.8uK-PneJm810gjm693XJrbwTdOP7odJNzp4fsldU674",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/api_with_jwt/tanaman.php?id=2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api_with_jwt",
+								"tanaman.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tanaman",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJMb2dpbiBzdWNjZXNzZnVsbHkiLCJleHAiOjE3MzI4NjMwNTl9.bPniRVhqFX5iMFYBunhZQMvtZqUQC7qYywfCwrUn75Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api_with_jwt/tanaman.php",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api_with_jwt",
+								"tanaman.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Tanaman",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiZW1haWwiOiJMb2dpbiBzdWNjZXNzZnVsbHkiLCJleHAiOjE3MzI4NjE1MjB9.8uK-PneJm810gjm693XJrbwTdOP7odJNzp4fsldU674",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tanggal\": \"2024-10-28\",\r\n  \"tanaman\": \"Kurma\",\r\n  \"keterangan\": \"Tanaman berbuah lebat\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api_with_jwt/tanaman.php?id=3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api_with_jwt",
+								"tanaman.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tambah Tanaman",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJMb2dpbiBzdWNjZXNzZnVsbHkiLCJleHAiOjE3MzI4NjMwNTl9.bPniRVhqFX5iMFYBunhZQMvtZqUQC7qYywfCwrUn75Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tanggal",
+									"value": "2024-10-25",
+									"type": "text"
+								},
+								{
+									"key": "tanaman",
+									"value": "kurma",
+									"type": "text"
+								},
+								{
+									"key": "keterangan",
+									"value": "baru disiram",
+									"type": "text"
+								},
+								{
+									"key": "foto",
+									"type": "file",
+									"src": "postman-cloud:///1ef92ae3-8286-4170-b889-cf10970639c2"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api_with_jwt/tanaman.php",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api_with_jwt",
+								"tanaman.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API",
+			"item": [
+				{
+					"name": "Get Tanaman",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tanaman.php",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tanaman.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Tanaman",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tanaman.php?id=9",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tanaman.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tanaman edit",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/tanaman.php?id=99",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tanaman.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "99"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tambah Tanaman",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tanggal",
+									"value": "2024-10-25",
+									"type": "text"
+								},
+								{
+									"key": "tanaman",
+									"value": "kurma",
+									"type": "text"
+								},
+								{
+									"key": "keterangan",
+									"value": "baru disiram",
+									"type": "text"
+								},
+								{
+									"key": "foto",
+									"type": "file",
+									"src": "postman-cloud:///1ef92ae3-8286-4170-b889-cf10970639c2"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tanaman.php",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tanaman.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Tanaman",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tanggal\": \"2024-10-28\",\r\n  \"tanaman\": \"Kurma\",\r\n  \"keterangan\": \"Tanaman berbuah lebat\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/tanaman.php?id=2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"tanaman.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost/belajar-php/project/day-3",
+			"type": "string"
+		}
+	]
+}
