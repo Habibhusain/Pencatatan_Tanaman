@@ -3,35 +3,33 @@
 require "db.php";
 require "functions.php";
 
+if (isset($_POST['tanaman']) && $_POST['tanaman'] !='') {
 
-        if(isset($_POST['tanaman']) && $_POST['tanaman'] !='')
-        {
-            $foto = upload_tanaman();
-            $tanaman = $_POST['tanaman'];
-            $keterangan = $_POST['keterangan'];
-            $tanggal = $_POST['tanggal'];
-            if($foto == FALSE){
-                echo "<script>
-                alert('Upload Gambar Anda');
-                window.location = 'tambah_tanaman.php';
-                </script>";
-                exit();
-            }
-           
-            $tambah = tambah_tanaman($tanggal,$tanaman,$keterangan,$foto);
-            if($tambah)
-            {
-                echo "<script>
-                alert('Data Berhasil di Tambah');
-                window.location = 'index.php';
-                </script>";
-            }else{
-                echo "<script>
-                alert('Data Berhasil di Tambah');
-                window.location = 'tambah_tanaman.php';
-                </script>";
-            }
-        }
+    $foto = upload_tanaman();
+    $tanaman = $_POST['tanaman'];
+    $keterangan = $_POST['keterangan'];
+    $tanggal = $_POST['tanggal'];
+
+    if ($foto == FALSE) {
+        echo "<script>
+        alert('Upload Gambar Anda');
+        window.location = 'tambah_tanaman.php';
+        </script>";
+    }
+    
+    $tambah = tambah_tanaman($tanggal,$tanaman,$keterangan,$foto);
+    if ($tambah) {
+        echo "<script>
+        alert('Data Berhasil di Tambah');
+        window.location = 'index.php';
+        </script>";
+    } else {
+        echo "<script>
+        alert('Data Berhasil di Tambah');
+        window.location = 'tambah_tanaman.php';
+        </script>";
+    }
+}
 ?>
 
 <!DOCTYPE html>

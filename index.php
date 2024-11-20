@@ -1,7 +1,6 @@
 <?php
 require 'db.php';
 require "functions.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +19,7 @@ require "functions.php";
     <?php
         $hitung_data_murojaah="SELECT COUNT(*) FROM tanaman";
         $hitung_murojaah = $db->query($hitung_data_murojaah);
-        while($hitung =$hitung_murojaah->fetchArray()):
+        while ($hitung =$hitung_murojaah->fetchArray()):
     ?>
         <h4>Total Tanaman : <?php echo $hitung[0];?></h4>
      <?php 
@@ -44,7 +43,7 @@ require "functions.php";
             <?php
              $tampilan_data = tampil_data();
              $no=1;
-             foreach($tampilan_data as $row):
+             foreach ($tampilan_data as $row):
             ?>
             <tr>
                 <td><?php echo $no;?></td>

@@ -1,40 +1,38 @@
 <?php
-
 require 'db.php';
 require "functions.php";
 
 $get_id = $_GET['id'];
    
-    if(isset($_POST['tanaman']) && $_POST['tanaman'] !='')
-    {
-        $get_tanggal = $_POST['tanggal'];
-        $get_tanaman = $_POST['tanaman'];
-        $get_keterangan = $_POST['keterangan'];
-        $get_gambar = upload_tanaman();
-        if($get_gambar == FALSE){
-            echo "<script>
-            alert('Upload Gambar Anda');
-            window.location = 'edit_tanaman.php';
-            </script>";
-            exit();
-        }
-       $update = update_tanaman($get_id,$get_tanggal,$get_tanaman,$get_keterangan,$get_gambar);
+if (isset($_POST['tanaman']) && $_POST['tanaman'] !='') {
+    
+    $get_tanggal = $_POST['tanggal'];
+    $get_tanaman = $_POST['tanaman'];
+    $get_keterangan = $_POST['keterangan'];
+    $get_gambar = upload_tanaman();
 
-        if($update)
-        {
-            echo "<script>
-            alert('Data Berhasil di Edit');
-            window.location = 'index.php';
-            </script>";
-        }
-        else{
-            echo "<script>
-            alert('Data Gagal di Edit');
-            window.location = 'edit_tanaman.php';
-            </script>";
-        }
+    if ($get_gambar == FALSE) {
+        echo "<script>
+        alert('Upload Gambar Anda');
+        window.location = 'edit_tanaman.php';
+        </script>";
+        exit();
     }
 
+    $update = update_tanaman($get_id,$get_tanggal,$get_tanaman,$get_keterangan,$get_gambar);
+
+    if ($update) {
+        echo "<script>
+        alert('Data Berhasil di Edit');
+        window.location = 'index.php';
+        </script>";
+    } else {
+        echo "<script>
+        alert('Data Gagal di Edit');
+        window.location = 'edit_tanaman.php';
+        </script>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

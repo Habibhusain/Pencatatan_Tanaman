@@ -1,117 +1,106 @@
 <?php
+function database() {
+    $db = new SQLite3('db_tanaman.sqlite');
+    if (!$db) {
+        echo $db -> lastErrorMsg();
+        exit();
+    } else {
+        // echo "Database Berhasil";
+    }
+    
+    return $db;
+}
 
-    function database()
-    {
-            $db = new SQLite3('db_tanaman.sqlite');
+function table() {
+    $db = database();
 
-            if(!$db){
-                echo $db -> lastErrorMsg();
-                exit();
-            }else{
-                // echo "Database Berhasil";
-            }
-            
-            return $db;
+    $table = $db -> query("CREATE TABLE IF NOT EXISTS tanaman (id INTEGER PRIMARY KEY AUTOINCREMENT, tanggal TEXT NOT NULL, tanaman TEXT NOT NULL,  keterangan TEXT,foto TEXT NOT NULL)");
+}
+
+
+function tampil_data() {
+
+    $db = database();
+
+    $tampil_data_tanaman = "SELECT * FROM tanaman ORDER BY tanggal DESC";
+    $tampil_tanaman = $db -> query($tampil_data_tanaman);
+
+    $tampilan_data=[];
+    while ($row= $tampil_tanaman->fetchArray()) {
+    $tampilan_data[] = $row;
     }
 
-    function table()
-    {
-        $db = database();
+    return $tampilan_data;
+}
 
-        $table = $db -> query("CREATE TABLE IF NOT EXISTS tanaman (id INTEGER PRIMARY KEY AUTOINCREMENT, tanggal TEXT NOT NULL, tanaman TEXT NOT NULL,  keterangan TEXT,foto TEXT NOT NULL)");
-        
+function upload_tanaman() {
+
+    $ambil_ukuran_file = $_FILES['foto']['size'];
+    $ukuran_diizinkan = 10000000;
+
+    if ($ambil_ukuran_file > $ukuran_diizinkan) {
+        echo 'ukurannya maksimal 10 MB !!';
     }
 
+    $ambil_nama_file = $_FILES['foto']['name'];
+    $ambil_extensi_file = pathinfo($ambil_nama_file, PATHINFO_EXTENSION);
+    $extensi_diizinkan = array('jpg','jpeg','png','avif','svg','JPG');
 
-    function tampil_data()
-    {
-            $db = database();
+    if (in_array($ambil_extensi_file, $extensi_diizinkan)) {
 
-             $tampil_data_tanaman = "SELECT * FROM tanaman ORDER BY tanggal DESC";
-             $tampil_tanaman = $db -> query($tampil_data_tanaman);
+        $ambil_tmp_file = $_FILES['foto']['tmp_name'];
+        $tujuan_folder = "image/";
+        $target_file = $tujuan_folder . basename($ambil_nama_file);
 
-             $tampilan_data=[];
-             while ($row= $tampil_tanaman->fetchArray()){
-                $tampilan_data[] = $row;
-             }
+        $gambar_file = move_uploaded_file($ambil_tmp_file, $target_file);
 
-             return $tampilan_data;
-    }
-
-    function upload_tanaman(){
-
-        $ambil_ukuran_file = $_FILES['foto']['size'];
-        $ukuran_diizinkan = 10000000;
-    
-        if($ambil_ukuran_file > $ukuran_diizinkan)
-        {
-            echo 'ukurannya maksimal 10 MB !!';
-            exit();
-        }
-        $ambil_nama_file = $_FILES['foto']['name'];
-        $ambil_extensi_file = pathinfo($ambil_nama_file, PATHINFO_EXTENSION);
-        $extensi_diizinkan = array('jpg','jpeg','png','avif','svg','JPG');
-    
-        if(in_array($ambil_extensi_file, $extensi_diizinkan))
-        {
-            $ambil_tmp_file = $_FILES['foto']['tmp_name'];
-            $tujuan_folder = "image/";
-            $target_file = $tujuan_folder . basename($ambil_nama_file);
-    
-            $gambar_file = move_uploaded_file($ambil_tmp_file, $target_file);
-    
-            if($gambar_file == TRUE)
-            {
-                return $ambil_nama_file;
-            }
-            else
-            {
-                return FALSE;
-            }
-        }
-        else
-        {
+        if ($gambar_file == TRUE) {
+            return $ambil_nama_file;
+        } else {
             return FALSE;
         }
+    } else {
+        return FALSE;
     }
+}
 
-    function tambah_tanaman($tanggal,$tanaman, $keterangan,$foto)
-    {
-        $db = database();
+function tambah_tanaman($tanggal,$tanaman, $keterangan,$foto) {
 
-        $tambah_data_tanaman = "INSERT INTO tanaman (tanggal,tanaman,keterangan,foto) VALUES ('$tanggal', '$tanaman', '$keterangan', '$foto')";
-        $tambah_tanaman = $db ->query ($tambah_data_tanaman);
-        
-        return $tambah_tanaman;
-    }
+    $db = database();
 
-    function update_tanaman($get_id,$get_tanggal,$get_tanaman,$get_keterangan,$get_gambar)
-    {
-        $db = database();
-        $update_data_tanaman = "UPDATE tanaman SET tanggal='$get_tanggal', tanaman='$get_tanaman', keterangan='$get_keterangan', foto='$get_gambar' WHERE id ='$get_id'";
-        $update_tanaman = $db->query($update_data_tanaman);
+    $tambah_data_tanaman = "INSERT INTO tanaman (tanggal,tanaman,keterangan,foto) VALUES ('$tanggal', '$tanaman', '$keterangan', '$foto')";
+    $tambah_tanaman = $db ->query ($tambah_data_tanaman);
+    
+    return $tambah_tanaman;
+}
 
-        return $update_tanaman;
-    }
+function update_tanaman($get_id,$get_tanggal,$get_tanaman,$get_keterangan,$get_gambar) {
 
-    function ambil_data_tanaman($get_id){
-        $db = database();
+    $db = database();
 
-        $ambil_data_tanaman = "SELECT * FROM tanaman WHERE id ='$get_id'";
-        $ambil_tanaman = $db -> query($ambil_data_tanaman);
-        $ambil = $ambil_tanaman -> fetchArray();
+    $update_data_tanaman = "UPDATE tanaman SET tanggal='$get_tanggal', tanaman='$get_tanaman', keterangan='$get_keterangan', foto='$get_gambar' WHERE id ='$get_id'";
+    $update_tanaman = $db->query($update_data_tanaman);
 
-        return $ambil;
+    return $update_tanaman;
+}
 
-    }
+function ambil_data_tanaman($get_id){
 
-    function delete_tanaman($get_id)
-    {
-        $db = database();
+    $db = database();
 
-        $delete_data_tanaman= "DELETE FROM tanaman WHERE id='$get_id'";
-        $delete_tanaman = $db -> query($delete_data_tanaman);
+    $ambil_data_tanaman = "SELECT * FROM tanaman WHERE id ='$get_id'";
+    $ambil_tanaman = $db -> query($ambil_data_tanaman);
+    $ambil = $ambil_tanaman -> fetchArray();
 
-        return $delete_tanaman;
-    }
+    return $ambil;
+}
 
+function delete_tanaman($get_id) {
+
+    $db = database();
+
+    $delete_data_tanaman= "DELETE FROM tanaman WHERE id='$get_id'";
+    $delete_tanaman = $db -> query($delete_data_tanaman);
+
+    return $delete_tanaman;
+}
